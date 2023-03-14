@@ -1,0 +1,6 @@
+<h1>Success!</h1>
+<form asp-controller="User" asp-action="Logout" method="Post">
+    <button>
+        Logout (@Context.Session.GetInt32("UUID"))
+    </button>
+</form>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/style.css">
+    <title>Time Display</title>
+</head>
+<body>
+    @{
+        DateTime CurrentTime = DateTime.Now;
+    }
+    <h1>Time Remaining</h1>
+    <div class="Time">
+    <h2>@CurrentTime</h2>
+    <h2>Remaining</h2>
+    </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+body{
+    background-color: palegreen;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Time {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid black;
+    width: 300px;
+    margin-left: 780px;
+}

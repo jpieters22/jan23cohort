@@ -1,0 +1,123 @@
+body {
+    background-color: paleturquoise;
+}
+
+.aboutNav{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+nav{
+    display: flex;
+    width: 500px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutMe {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 55%;
+    margin-left: 500px;
+}
+
+/* .aboutMe p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+} */
+
+.about img {
+    width: 400px;
+    height: 400px;
+    border-radius: 20px;
+}
+
+.about {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contactNav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contactForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.projectNav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project1 img {
+    width: 200px;
+    height: 200px;
+}
+
+.project2 img {
+    width: 200px;
+    height: 200px;
+}
+
+.project3 img {
+    width: 200px;
+    height: 200px;
+}
+
+.project1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 40%;
+    margin-left: 560px;
+}
+
+.project2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 40%;
+    margin-left: 560px;
+}
+
+.project3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 40%;
+    margin-left: 560px;
+}
+
+.projects{
+    margin-top: 60px;
+}
+
+#Message{
+    height: 100px;
+    width: 400px;
+}

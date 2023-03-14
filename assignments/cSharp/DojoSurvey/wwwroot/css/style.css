@@ -1,0 +1,32 @@
+body {
+    background-color: palevioletred;
+}
+
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+    border: 3px solid black;
+    width: 700px;
+    margin-left: 550px;
+    padding: 50px 50px 50px 50px;
+}
+
+.results{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 200px;
+    border: 3px solid black;
+    width: 700px;
+    height: 300px;
+    margin-left: 550px;
+    padding: 20px 20px 20px 20px;
+    background-color: white;
+}
+
+/* .finalResults{
+    padding-left: 150px;
+} */

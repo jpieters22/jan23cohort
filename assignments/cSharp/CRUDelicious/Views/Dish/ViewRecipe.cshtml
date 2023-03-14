@@ -1,0 +1,35 @@
+@model Dish 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~css/chef.css">
+    <title>View Recipe</title>
+</head>
+<body>
+    <div class="topHeader">
+        <h1>@Model.Name</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/dishes/new">Add a Dish</a>
+        </nav>
+    </div>
+    <div class="dishDetails">
+        <h2>@Model.Name by @Model.Chef</h2>
+        <p>@Model.Description</p>
+        <p>@Model.Calories</p>
+        <p>@Model.Tastiness</p>
+    </div>
+    <div>
+        @* <form asp-action="Delete" asp-controller="Dish" method="post" asp-route="@Model.DishId">
+            <button type="submit">Delete</button>
+        </form> *@
+        <a href="/dishes/@Model.DishId/Delete">Delete</a>
+        <a href="/dishes/@Model.DishId/edit">Edit</a>
+    </div>
+
+</body>
+</html>

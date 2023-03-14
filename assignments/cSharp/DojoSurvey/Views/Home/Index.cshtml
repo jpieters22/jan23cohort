@@ -1,0 +1,44 @@
+@model SurveyModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/style.css">
+    <title>Dojo Survey Index</title>
+</head>
+<body>
+    <div class="form">
+        <form  asp-controller="Home" action="/result" method="post">
+            <label asp-for="Name">Your Name:</label>
+            <input asp-for="Name"><br>
+            <span asp-validation-for="Name"></span><br>
+            <label asp-for="Location">Dojo Location:</label>
+            <select asp-for="Location">
+                <option value="sanJose">San Jose</option>
+                <option value="newYork">New York</option>
+                <option value="denver">Denver</option>
+                <option value="dallas">Dallas</option>
+                <option value="seattle">Seattle</option>
+                <option value="tulsa">Tulsa</option>
+            </select><br>
+            <span asp-validation-for="Location"></span><br>
+            <label asp-for="Language">Favorite Language:</label>
+            <select asp-for="Language">
+                <option value="cSharp">C#</option>
+                <option value="python">Python</option>
+                <option value="javaScript">JavaScript</option>
+                <option value="sql">SQL</option>
+                <option value="java">Java</option>
+            </select><br>
+            <span asp-validation-for="Language"></span><br>
+            <label asp-for="Comments">Comment (optional):</label><br>
+            <textarea asp-for="Comments" id="comments" cols="80" rows="10"></textarea><br>
+            <span asp-validation-for="Comments"></span><br>
+            <input type="submit">
+        </form>
+    </div>
+</body>
+</html>
