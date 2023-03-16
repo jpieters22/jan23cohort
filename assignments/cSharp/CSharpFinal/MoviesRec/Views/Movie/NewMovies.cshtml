@@ -1,0 +1,47 @@
+@model Movies
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/site.css">
+    <title>New Movie Review</title>
+</head>
+<body>
+    <header class="topHeader">
+        <div class="topHead">
+            <h1>MoviesRec</h1>
+            <nav class="navBar">
+                <a href="/reviews">Home</a>
+            </nav>
+        </div>
+    </header>
+    <div class="newForm">
+        <h1>Create a Review!</h1>
+        <form asp-action="Create" asp-controller="Movie" method="post" class="shadow p-3 rounded">
+            <div class="mb-3">
+                <label asp-for="Img"></label>
+                <input asp-for="Img" class="form-control">
+                <span asp-validation-for="Img"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Title"></label>
+                <input asp-for="Title" class="form-control">
+                <span asp-validation-for="Title"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Review"></label>
+                <input asp-for="Review" class="form-control">
+                <span asp-validation-for="Review"></span>
+            </div>
+            <div class="mb-3">
+                <input asp-for="Recommend" type="checkbox">
+                <label asp-for="Recommend"></label>
+            </div>
+            <button class="btn btn-success">Post!</button>
+        </form>
+    </div>
+</body>
+</html>

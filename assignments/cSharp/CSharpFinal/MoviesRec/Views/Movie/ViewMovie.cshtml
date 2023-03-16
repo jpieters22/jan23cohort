@@ -1,0 +1,48 @@
+@model Movies
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/site.css">
+    <title>View Review</title>
+</head>
+<body>
+    <header class="topHeader">
+        <div class="topHead">
+            <h1>MoviesRec</h1>
+            <nav class="navBar">
+                <a href="/reviews">Home</a>
+            </nav>
+        </div>
+    </header>
+    <div class="wholeText">
+        <div class="rightDescription">
+        <h1>@Model.Title</h1>
+        </div>
+        <img src="@Model.Img" alt="related to post" class="card-img-top imgSize">
+    </div>
+    <div class="wholeText">
+    <div class="rightDescription">
+        @* <h3>By: @Model.Author.FirstName</h3> *@
+        <h3>Review: @Model.Review</h3>
+        @if(Model.Recommend)
+                {
+                    <span>@Model.Title is recommended!</span>
+                }
+                else
+                {
+                    <span>@Model.Title is not recommended!</span>
+                }
+        <h3>@Model.postLikes.Count</h3>
+        @if(Model.UsersId == Context.Session.GetInt32("UUID"))
+                {
+                    <a href="/reviews/@Model.MoviesId/edit">Edit</a>
+                    <a href="/reviews/@Model.MoviesId/Delete">Delete</a>
+                }
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,139 @@
+//step 1 - create a new project
+
+dotnet new mvc --no-https -o ProjectName
+
+//step 2 - cd into project and run these commands
+ 
+dotnet add package Pomelo.EntityFrameworkCore.MySql --version 6.0.1
+dotnet add package Microsoft.EntityFrameworkCore.Design --version 6.0.3
+
+// step 3 - create models
+
+#pragma warning disable CS8618
+using System.ComponentModel.DataAnnotations;
+namespace [{<ProjectName>}].Models;
+
+public class <ClassName> {
+    [Key]
+    public int ClassNameId { get; set; }
+    // add more attributes here
+    
+    
+    public DateTime CreatedAt { get; set; } = DateTime.Now;
+    public DateTime UpdatedAt { get; set; } = DateTime.Now;
+}
+
+// step 4 - create context file under models folder MyContext.cs
+
+#pragma warning disable CS8618
+
+using Microsoft.EntityFrameworkCore;
+namespace [{<YourProjectName>}].Models;
+
+public class MyContext : DbContext 
+{    
+    public MyContext(DbContextOptions options) : base(options) { }    
+   
+    public DbSet<ClassName> ClassNames { get; set; } 
+}
+
+//step 5 - overwrite appsettings.json file 
+
+{  
+    "Logging": {    
+        "LogLevel": {      
+            "Default": "Information",      
+            "Microsoft.AspNetCore": "Warning"    
+        }  
+    },
+    "AllowedHosts": "*",    
+    "ConnectionStrings":    
+    {        
+        "DefaultConnection": "Server=localhost;port=3306;userid=root;password=root;database=monsterdb;"    
+    }
+}
+
+//step 6 - overwrite Program.cs file
+
+using Microsoft.EntityFrameworkCore;
+using <ProjectName>.Models;
+
+var builder = WebApplication.CreateBuilder(args);
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+builder.Services.AddControllersWithViews();
+
+builder.Services.AddHttpContextAccessor();  
+builder.Services.AddSession();  
+
+builder.Services.AddDbContext<MyContext>(options =>
+{
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+});
+
+
+var app = builder.Build();
+
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Home/Error");
+}
+app.UseStaticFiles();
+
+app.UseRouting();
+
+app.UseAuthorization();
+
+app.UseSession();    
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.Run();
+
+//step 7 - run migration commands in terminal
+
+dotnet ef migrations add FirstMigration
+dotnet ef database update
+
+//use this command if you're getting an error and migration is failing to see where the errors lie 
+dotnet ef migrations add FirstMigration -v
+
+//step 8  - overwrite home controller 
+
+using System.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
+using [{<ProjectName>}].Models;
+
+namespace [{<ProjectName>}].Controllers;
+
+public class HomeController : Controller
+{
+    private readonly ILogger<HomeController> _logger;
+
+    private MyContext db;  // or use _context instead of db
+
+    public HomeController(ILogger<HomeController> logger, MyContext context)
+    {
+        _logger = logger;
+        db = context; // if you use _context above use it here too
+    }
+
+    public IActionResult Index()
+    {
+        return View();  
+    }
+
+    public IActionResult Privacy()
+    {
+        return View();
+    }
+
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    public IActionResult Error()
+    {
+        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    }
+}

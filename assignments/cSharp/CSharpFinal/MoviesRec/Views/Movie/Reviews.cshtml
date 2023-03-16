@@ -1,0 +1,70 @@
+@model List<Movies>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/site.css">
+    <title>Reviews</title>
+</head>
+<body>
+    <header class="topHeader">
+        <div class="topHead">
+            <h1>MoviesRec</h1>
+            <nav class="navBar">
+                <a href="/reviews/new">Add a Review</a>
+            </nav>
+        </div>
+    </header>
+    <div class="posts">
+        <h2>Recent reviews</h2>
+        @foreach (var Movies in Model)
+        {
+            <div class="wholeText">
+                <img src="@Movies.Img" alt="related to post" class="card-img-top imgSize">
+                <div class="rightDescription">
+                <a asp-controller="Movie" asp-action="ViewMovie" asp-route-MoviesId = "@Movies.MoviesId" class="fs-2">@Movies.Title</a>
+                <p>By: @Movies.Author.FirstName</p>
+                <p>Review: @Movies.Review</p>
+                @if(Movies.Recommend)
+                {
+                    <span>@Movies.Author.FirstName recommends this movie!</span>
+                }
+                else
+                {
+                    <span>@Movies.Author.FirstName does not recommend this movie!</span>
+                }
+
+                @if(Movies.Author.UsersId == Context.Session.GetInt32("UUID"))
+                {
+                    <a href="/reviews/@Movies.MoviesId/edit">Edit</a>
+                    <a href="/reviews/@Movies.MoviesId/Delete">Delete</a>
+                }
+                @* <a href="/reviews/@Movies.MoviesId/edit">Edit</a>
+                <a href="/reviews/@Movies.MoviesId/Delete">Delete</a> *@
+                <h3>Likes: @Movies.postLikes.Count</h3>
+                @foreach (UserLikes likes in Movies.postLikes)
+                {
+                }
+                @{bool alreadyLiked = Movies.postLikes.Any(like => like.UsersId == Context.Session.GetInt32("UUID"));}
+                <form asp-controller="Movie" asp-action="Like" asp-route-MoviesId = "@Movies.MoviesId" method="post">
+                    <button class="btn">
+                        @if (alreadyLiked)
+                        {
+                            <span>Unlike</span>
+                        }
+                        else
+                        {
+                            <span>Like</span>
+                        }
+                    </button>
+                </form>
+                </div>
+            </div>
+        }
+    </div>
+</body>
+</html>
