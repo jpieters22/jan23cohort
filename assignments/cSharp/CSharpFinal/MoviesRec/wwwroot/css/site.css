@@ -1,3 +1,4 @@
+
 html {
   font-size: 14px;
 }
@@ -33,6 +34,8 @@ body {
   justify-content: center;
   align-items: center;
   padding: 4em 4em 4em 4em;
+  font-family: "Concert One";
+  font-size: x-large;
 }
 
 .wholeText{
@@ -56,6 +59,8 @@ h1 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  font-family: "Creepster";
+  font-size: x-large;
 }
 
 .navBar {
@@ -67,7 +72,7 @@ h1 {
 }
 
 .navBar a {
-  text-decoration: none;
+  text-decoration: underline black;
   color: black;
 }
 
@@ -89,10 +94,28 @@ h1 {
   color: white;
   border-color: white;
   border-width: 2px;
+  font-family: "Creepster";
 }
 
 .wholeText a {
   text-decoration: underline white;
   color: white;
 }
+
+.posts h2 {
+  font-family: "Creepster";
+}
+
+.newForm h1 {
+  font-family: "Creepster";
+}
+
+h3 {
+  font-family: "Creepster";
+}
+
+.diffFont{
+  font-family: "Concert One";
+}
+
 

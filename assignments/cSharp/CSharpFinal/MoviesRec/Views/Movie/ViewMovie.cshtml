@@ -26,8 +26,7 @@
     </div>
     <div class="wholeText">
     <div class="rightDescription">
-        @* <h3>By: @Model.Author.FirstName</h3> *@
-        <h3>Review: @Model.Review</h3>
+        <h3 class="diffFont">Review: @Model.Review</h3>
         @if(Model.Recommend)
                 {
                     <span>@Model.Title is recommended!</span>
@@ -36,7 +35,7 @@
                 {
                     <span>@Model.Title is not recommended!</span>
                 }
-        <h3>@Model.postLikes.Count</h3>
+        <h3>Likes: @Model.postLikes.Count</h3>
         @if(Model.UsersId == Context.Session.GetInt32("UUID"))
                 {
                     <a href="/reviews/@Model.MoviesId/edit">Edit</a>
