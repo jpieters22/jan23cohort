@@ -1,4 +1,4 @@
-package assignments.java;
+package assignments.java.PracticeReview;
 
 public class FirstJava {
     public static void main(String[] args){
