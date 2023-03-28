@@ -5,30 +5,29 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="/style.css">
 <title>Insert title here</title>
 </head>
 <body>
 <h1>Fruit Store</h1>
 
 <table class="table">
-<tr>
-<th>Name</th>
-<th>Price</th>
-</tr>
-<tr>
-<c:forEach var="fruits" items = "${items}">
-<tr>
-<td>
-<p><c:out value= "${fruits.name}"></c:out></p>
-</td>
-</tr>
-<tr>
-<td>
-<p><c:out value= "${fruits.price}"></c:out></p>
-</td>
-</tr>
-</c:forEach>
-</tr>
+	<tr>
+		<th>Name</th>
+		<th>Price</th>
+	</tr>
+		<c:forEach var="fruits" items = "${items}">
+	<tr>
+	<td>
+		<p><c:out value= "${fruits.name}"></c:out></p>
+	</td>
+	
+	
+	<td>
+		<p><c:out value= "${fruits.price}"></c:out></p>
+	</td>
+	</tr>
+		</c:forEach>
 </table>
 </body>
 </html>

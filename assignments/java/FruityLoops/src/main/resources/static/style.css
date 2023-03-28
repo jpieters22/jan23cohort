@@ -1,0 +1,14 @@
+@charset "ISO-8859-1";
+
+h1 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #ff80c0;
+}
+
+.table {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
