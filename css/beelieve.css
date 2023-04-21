@@ -197,16 +197,3 @@ body .row .round01 .back01 .but01 .off {
   -webkit-transition: all 0.1s;
   transform: scaleY(0.85);
 }
-.l,
-.r {
-  margin: 0 auto;
-  text-align: center;
-}
-.round,
-#onoff,
-.back,
-.but,
-.on,
-.off {
-  user-select: none;
-}

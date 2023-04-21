@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+@gray: #000000;
+@pink: #eb44a5;
+@border: #44e0eb;
+@tablebg: #8a005e;
+@font: #fff;
+
+
+.flexrow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.flexcolumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    border: 2px groove @pink;
+    // background-color: @green;
+    box-shadow: .10em .25em .75em @pink;
+}
+table, tr, th, td {
+    border: 3px double @border;
+    text-align: center;
+    background-color: @tablebg;
+    color: @font;
+    background-image: url("https://www.transparenttextures.com/patterns/gray-floral.png");
+    // width: 85%;
+    padding: 1em;
+    margin: 1em;
+}
+table {
+    tr {
+        td {
+            img {
+                max-width: 200px;
+            }
+        }
+    }
+}
+
+a {
+    color: @font;
+    text-decoration: none;
+}
+
+body {
+    .flexcolumn();
+    background-color: @gray;
+    color: @pink;
+    width: 95%;
+
+    header {
+        .flexrow();
+        width: 85%;
+        justify-content: space-between;
+        .box();
+        margin: .1em .5em 1em;
+
+        nav {
+            .flexrow();
+            padding: .5em;
+            margin: .5em;
+        }
+    }
+    main {
+        .flexcolumn();
+        width: 85%;
+
+        .lg {
+            .box();
+            background-color: @gray;
+            font-size: 3em;
+            color: @pink;
+            margin: 2em 1em 1em;
+            padding: 1em;
+        }
+
+        .row {
+            .flexrow();
+            flex-wrap: wrap;
+            width: 100%;
+
+            .column {
+                .flexcolumn();
+                border: 1px @border solid;
+                padding: 1em;
+                margin: 1em;
+
+                img {
+                    max-width: 250px;
+                }
+            }
+        }
+    }
+    footer {
+        .flexcolumn();
+        width: 85%;
+
+        img {
+            width: 15vw;
+        }
+    }
+}
